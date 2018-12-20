@@ -1,0 +1,5 @@
+{
+	"id": "tut004",
+	"title": "How to add nodes to configuration file",
+	"content": "<p><span class=txred>Wallet must be off when doing this!</span></p><p>Enable display hidden files:<br><a href=http://show-hidden-files-and-folders-in-windows-vista target=_blank rel=noopener>http://www.howtogeek.com/howto/windows-vista/show-hidden-files-and-folders-in-windows-vista/</a></p><p>Windows users:<br>Go to C:\\Users\\YOUR-USERNAME\\Appdata\\Roaming\\YOUR-COIN</p><p>Linux users:<br>Go to /home/USER/.YOUR-COIN</p><p>Right click make new text file and name it YOUR-COIN.conf , it must be .conf not .txt</p><p>You'll need to check right as some coins have file starting with capital letter, so it could be in format yourcoin.conf or Yourcoin.conf or YourCoin.conf</p><p>Edit YOUR-COIN.conf and copy this:</p><p>Code:</p><p><code>listen=1<br>daemon=1<br>rpcuser=X<br>rpcpassword=X<br>addnode=NODE-IP1<br>addnode=NODE-IP2<br>addnode=NODE-IP3<br></code></p><p>Start your wallet and see is there any connections.</p>"
+}

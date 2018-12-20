@@ -1,0 +1,5 @@
+{
+	"id": "tut002",
+	"title": "fatal error: opening dependency file obj/shavite.d: No such file or directory",
+	"content": "<p>Run in src folder:</p><p><code>mkdir obj</code></p>"
+}

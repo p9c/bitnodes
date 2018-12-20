@@ -1,0 +1,5 @@
+{
+	"id": "tut005",
+	"title": "Libstdc++.so.6: version `GLIBCXX_3.4.20' not found - Ubuntu 14.04",
+	"content": "<p><code>sudo apt-get install libstdc++6</code></p><p><code>sudo add-apt-repository ppa:ubuntu-toolchain-r/test</code></p><p><code>sudo apt-get update</code></p><p><code>sudo apt-get upgrade</code></p><p><code>sudo apt-get dist-upgrade</code></p>"
+}

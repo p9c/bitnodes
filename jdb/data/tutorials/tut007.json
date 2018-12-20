@@ -1,0 +1,5 @@
+{
+	"id": "tut007",
+	"title": "Fatal error: opening dependency file obj/alert.d: No such file or directory",
+	"content": "<p>In folder YOUR-COIN/src do:</p><p><code>mkdir obj obj/zerocoin</code></p>"
+}

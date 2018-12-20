@@ -1,0 +1,133 @@
+{{define "canonical"}}https://bitnodes.net/{{end}}
+{{define "photos"}}/s/imgs/mainbgs.jpg{{end}}
+{{define "content"}}
+  <amp-state id="product">
+    <script type="application/json">
+    {
+      "selectedService": "shared",
+      "selectedNodes": "1",
+      "shared": {
+        "nodes": {
+          "1": "$100",
+          "3": "$400",
+          "5": "$600",
+          "10": "$1000"
+        },
+        "defaultNodes": "1"
+      },
+      "dedicated": {
+        "nodes": {
+          "1": "$200",
+          "3": "$600",
+          "5": "$800",
+          "10": "$1500"
+        },
+        "defaultNodes": "1"
+      }
+    }
+    </script>
+  </amp-state>
+
+    
+<div class="product-gallery">
+    <div class="" [hidden]="product.selectedService != 'shared'">
+        <div [hidden]="product.selectedNodes != '1'">1shared</div>
+        <div [hidden]="product.selectedNodes != '3'">3deshareded</div>
+        <div [hidden]="product.selectedNodes != '5'">5shared</div>
+        <div [hidden]="product.selectedNodes != '10'">10shared</div>
+    </div>
+    <div class="" [hidden]="product.selectedService != 'dedicated'">
+        <div [hidden]="product.selectedNodes != '1'">1dedicated</div>
+        <div [hidden]="product.selectedNodes != '3'">3dedicated</div>
+        <div [hidden]="product.selectedNodes != '5'">5dedicated</div>
+        <div [hidden]="product.selectedNodes != '10'">10dedicated</div>
+    </div>
+</div>
+      
+
+  </div>
+    
+    <p class="price-description">Price:
+        <span [text]="product[product.selectedService].nodes[product.selectedNodes]">$0</span>
+    </p>
+
+    
+    
+
+    
+
+      <form id="order" method="POST"
+            action-xhr="//samples_templates/product_page/add_to_cart"
+            target="_top" class="flex flex-wrap m1">
+        <div class="items-center flex">
+          <label for="service">Service:</label>
+          <amp-selector name="service"
+                  layout="container"
+                  [selected]="product.selectedService"
+                  on="select:AMP.setState({
+                    product: {
+                      selectedService: event.targetOption,
+                      selectedSlideForShared: 0,
+                      selectedSlideForDedicated: 0,
+                      selectedNodes: product[event.targetOption].nodes[product.selectedNodes] != 'unavailable' ? product.selectedNodes : product[event.targetOption].defaultNodes
+                    }
+                  })">
+            <ul class="p0 m1">
+              <li>
+                <div option="shared" selected class="square shared">Shared</div>
+              </li>
+              <li>
+                <div option="dedicated" class="square dedicated">Dedicated</div>
+              </li>
+            </ul>
+          </amp-selector>
+        </div>
+
+        
+        
+        <div class="items-center flex">
+          <label for="nodes">Nodes:</label>
+          <amp-selector name="nodes" layout="container"
+                  on="select:AMP.setState({ product: {selectedNodes: event.targetOption}})"
+                  [selected]="(product[product.selectedService].nodes[product.selectedNodes] != 'unavailable')
+                      ? product.selectedNodes
+                      : product[product.selectedService].defaultNodes">
+            <ul class="p0 m1">
+              <li option="1" class=""
+                  [class]="(product[product.selectedService].nodes['1'] != 'unavailable')
+                      ? ''
+                      : 'unavailable'">1</li>
+              <li option="3" class="" selected
+                  [class]="(product[product.selectedService].nodes['3'] != 'unavailable')
+                      ? ''
+                      : 'unavailable'">3</li>
+              <li option="5" class=""
+                  [class]="(product[product.selectedService].nodes['5'] != 'unavailable')
+                      ? ''
+                      : 'unavailable'">5</li>
+              <li option="10" class="unavailable"
+                  [class]="(product[product.selectedService].nodes['10'] != 'unavailable')
+                      ? ''
+                      : 'unavailable'">10</li>
+            </ul>
+          </amp-selector>
+        </div>
+        <div class="items-center flex my1">
+          <input type="submit" class="ampstart-btn caps" name="add-to-cart" value="add to cart">
+        </div>
+        <input type="hidden" name="name" value="Node">
+        <input type="hidden" name="price" value="$1.99">
+        <input name="clientId" type="hidden" value="CLIENT_ID(cart)" data-amp-replace="CLIENT_ID">
+        <div submit-error>
+          <template type="amp-mustache">
+            Error! Looks like something went wrong with your shopping cart, please try to add an item again. {{`{{error}}`}}
+          </template>
+        </div>
+      </form>
+
+    
+
+      
+
+
+{{end}}

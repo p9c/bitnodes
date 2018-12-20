@@ -1,0 +1,205 @@
+// package rts
+
+// import (
+// 	"fmt"
+// 	"net/http"
+
+// 	"encoding/json"
+// 	"html/template"
+// 	"io"
+// 	"io/ioutil"
+// 	"strings"
+// 	"time"
+
+// 	"github.com/gorilla/mux"
+// )
+
+// func AmpCHandler(w http.ResponseWriter, r *http.Request) {
+// 	vars := mux.Vars(r)
+// 	// lang := vars["lang"]
+// 	page := vars["page"]
+// 	// site := mod.Site{}
+// 	// if err := JDB.Read("site", "meta", &site); err != nil {
+// 	// 	fmt.Println("Error", err)
+// 	// }
+// 	// var pageData interface{}
+// 	// if err := JDB.Read(lang, page, &pageData); err != nil {
+// 	// 	fmt.Println("Error", err)
+// 	// }
+// 	// data := struct {
+// 	// 	Site mod.Site    `json:"site"`
+// 	// 	Lang string      `json:"lang"`
+// 	// 	Page interface{} `json:"page"`
+// 	// }{
+// 	// 	site,
+// 	// 	lang,
+// 	// 	pageData,
+// 	// }
+// 	//	tmpl, _ := template.New("").ParseFiles("./tpl/amp/index.gohtml", "./tpl/amp/lyt/home.gohtml", "./tpl/amp/inc/amp.gohtml", "./tpl/amp/inc/nav.gohtml", "./tpl/amp/inc/amp-css-home.gohtml", "./tpl/amp/inc/footer.gohtml")
+// 	tmpl, _ := template.New("").ParseFiles(
+// 		"./tpl/icons/logo.gohtml",
+// 		"./tpl/amp/lyt/base.gohtml",
+// 		"./tpl/amp/"+page+".gohtml",
+// 		"./tpl/amp/inc/amp.gohtml",
+// 		"./tpl/amp/inc/header.gohtml",
+// 		"./tpl/amp/inc/nav.gohtml",
+// 		"./tpl/amp/inc/pricing.gohtml",
+// 		"./tpl/amp/inc/products.gohtml",
+// 		"./tpl/amp/inc/order.gohtml",
+// 		"./tpl/amp/inc/features.gohtml",
+// 		"./tpl/amp/inc/amp-basecss.gohtml",
+// 		"./tpl/amp/inc/amp-basecssplgs.gohtml",
+// 		"./tpl/amp/inc/amp-css.gohtml",
+// 	)
+// 	//tmpl, _ := template.New("").ParseFiles("./tpl/amp/lyt/base.gohtml")
+// 	fmt.Println("fdfdfdffdfdfdffdfdfdffdfdfdffdfdfdffdfdfdffdfdfdffdfdfdffdfdfdf", page)
+// 	tmpl.ExecuteTemplate(w, "base", nil)
+// }
+
+// type ProductPage struct {
+// 	Mode string
+// }
+
+// type Product struct {
+// 	Id          int    `json:"id"`
+// 	Img         string `json:"img"`
+// 	Name        string `json:"name"`
+// 	Price       string `json:"price"`
+// 	Stars       string `json:"stars"`
+// 	Attribution string `json:"attribution"`
+// 	Url         string `json:"url"`
+// 	Resources   string `json:"resources"`
+// }
+
+// type CartItem struct {
+// 	Name      string `json:"name"`
+// 	Price     string `json:"price"`
+// 	Resources string `json:"resources"`
+// 	Nodes     string `json:"nodes"`
+// }
+
+// func (p *Product) StarsAsHtml() template.HTML {
+// 	return template.HTML(p.Stars)
+// }
+
+// type JsonRoot struct {
+// 	Products     []Product `json:"items"`
+// 	HasMorePages bool      `json:"hasMorePages"`
+// }
+
+// var products []Product
+// var cache *LRUCache
+// var productsRoot JsonRoot
+
+// func AddToCart(w http.ResponseWriter, r *http.Request) {
+// 	clientId := r.FormValue("clientId")
+// 	if clientId == "" {
+// 		w.WriteHeader(http.StatusBadRequest)
+// 		return
+// 	}
+
+// 	// configure post form redirect
+// 	w.Header().Set("Access-Control-Expose-Headers", "AMP-Access-Control-Allow-Source-Origin,AMP-Redirect-To")
+// 	w.Header().Set("AMP-Redirect-To", GetHost(r)+"/shopping_cart/?clientid="+clientId)
+
+// 	// create a new shopping cart if one doesn't exist yet
+// 	value, shoppingCartIsInCache := cache.Get(clientId)
+// 	var shoppingCart map[CartItem]int
+// 	if shoppingCartIsInCache {
+// 		shoppingCart, _ = value.(map[CartItem]int)
+// 	} else {
+// 		shoppingCart = make(map[CartItem]int)
+// 		cache.Add(clientId, shoppingCart)
+// 	}
+// 	// extract item values (these are usually stored in your db)
+// 	name := r.FormValue("name")
+// 	resources := r.FormValue("resources")
+// 	price := r.FormValue("price")
+// 	nodes := r.FormValue("nodes")
+// 	// if err != nil {
+// 	// 	w.WriteHeader(http.StatusBadRequest)
+// 	// 	return
+// 	// }
+// 	shoppingCartItem := CartItem{name, price, resources, nodes}
+// 	shoppingCart[shoppingCartItem] = shoppingCart[shoppingCartItem]
+// 	// amp-form requires a json result
+// 	io.WriteString(w, "{}")
+// }
+
+// func initProducts(path string) {
+// 	productsFile, err := ioutil.ReadFile(path)
+// 	if err != nil {
+// 		panic(err)
+// 	}
+// 	var root JsonRoot
+// 	err = json.Unmarshal(productsFile, &root)
+// 	if err != nil {
+// 		panic(err)
+// 	}
+// 	productsRoot = root
+// 	products = root.Products
+// }
+
+// func redirectToCart(w http.ResponseWriter, r *http.Request, page Page, clientId string) {
+// 	expireInOneDay := time.Now().AddDate(0, 0, 1)
+// 	cookie := &http.Cookie{
+// 		// Name:    ABE_CLIENT_ID,
+// 		Expires: expireInOneDay,
+// 		Value:   clientId,
+// 	}
+// 	http.SetCookie(w, cookie)
+// 	route := page.Route
+// 	// remove CLIENT_ID from URL
+// 	route = strings.Split(route, "?")[0]
+
+// 	http.Redirect(w, r, route, http.StatusFound)
+// }
+
+// func Cart(w http.ResponseWriter, r *http.Request) {
+// 	cookie, err := r.Cookie("kukiloki")
+// 	if err != nil {
+// 		w.WriteHeader(http.StatusBadRequest)
+// 		response := fmt.Sprintf("{\"error\":\"%s\"}", err)
+// 		w.Write([]byte(response))
+// 	}
+// 	shoppingCart, exists := cache.Get(cookie.Value)
+// 	if !exists {
+// 		http.Error(w, http.StatusText(404), 404)
+// 		return
+// 	}
+// 	vars := mux.Vars(r)
+// 	page := vars["page"]
+// 	tmpl, _ := template.New("").ParseFiles(
+// 		"./tpl/icons/logo.gohtml",
+// 		"./tpl/amp/lyt/base.gohtml",
+// 		"./tpl/amp/"+page+".gohtml",
+// 		"./tpl/amp/inc/amp.gohtml",
+// 		"./tpl/amp/inc/header.gohtml",
+// 		"./tpl/amp/inc/nav.gohtml",
+// 		"./tpl/amp/inc/amp-basecss.gohtml",
+// 		"./tpl/amp/inc/amp-basecssplgs.gohtml",
+// 		"./tpl/amp/inc/amp-css.gohtml",
+// 	)
+// 	//tmpl, _ := template.New("").ParseFiles("./tpl/amp/lyt/base.gohtml")
+// 	fmt.Println("fdfdfdffdfdfdffdfdfdffdfdfdffdfdfdffdfdfdffdfdfdffdfdfdffdfdfdf", page)
+// 	tmpl.ExecuteTemplate(w, "base", shoppingCart)
+// }
+
+// func gotToCart(w http.ResponseWriter, r *http.Request, page Page) {
+// 	// remove the clientid from the URL to avoid accidental sharing
+// 	clientId := r.URL.Query().Get("clientid")
+// 	if clientId != "" {
+// 		redirectToCart(w, r, page, clientId)
+// 	} else {
+// 		Cart(w, r)
+// 	}
+// }
+
+// func contains(array []string, str string) bool {
+// 	for _, a := range array {
+// 		if strings.Contains(a, str) {
+// 			return true
+// 		}
+// 	}
+// 	return false
+// }

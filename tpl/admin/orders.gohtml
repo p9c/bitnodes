@@ -1,0 +1,18 @@
+{{ define "content"}}
+     {{ template "nav" .}}
+<section class="section">
+<div class="card">
+  <div class="card-content">
+
+    {{ range .}}
+        <div class="px2 col-12 flex flex-column bgwhite">
+<a href="/admin/order/{{.ID}}">
+<button class="button is-large">{{ .ID }}</button>
+</a>
+        </div>
+        {{end}}
+     
+</div>
+</div>
+</section>
+{{end}}

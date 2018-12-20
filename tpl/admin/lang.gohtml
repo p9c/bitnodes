@@ -1,0 +1,15 @@
+{{ define "content"}}
+     {{ template "nav" .}}
+<section class="section">
+<div class="card">
+  <div class="card-content">
+{{ $lang := .Lng}}
+{{range .Site.Pages}}
+<a href="/admin/pages/{{$lang}}/{{.}}">
+<button class="button is-large">{{.}}</button>
+</a>
+{{end}}
+</div>
+</div>
+</section>
+{{end}}

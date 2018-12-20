@@ -1,0 +1,82 @@
+{{define "basecssplgs"}}
+/* Basscss Btn */
+
+.btn {
+  font-family: var(--button-font-family);
+  font-size: var(--button-font-size);
+  font-weight: var(--button-font-weight);
+  text-decoration: none;
+  cursor: pointer;
+  display: inline-block;
+  line-height: var(--button-line-height);
+  padding: var(--button-padding-y) var(--button-padding-x);
+  margin: 0;
+  height: auto;
+  border: var(--border-width) var(--green) solid;
+  vertical-align: middle;
+  -webkit-appearance: none;
+  color: inherit;
+  background-color: transparent;
+
+    text-transform: uppercase;
+    color: var(--white);
+    border: 1px solid var(--dark-green);
+    border-radius: 4px;
+}
+
+.btn:hover {
+  text-decoration: none;
+  color:var(--white);
+  background:var(--green);
+  border: 1px solid var(--green);
+}
+
+.btn:focus {
+  outline: none;
+  border-color: var(--darken-2);
+  box-shadow: 0 0 0 3px var(--darken-3);
+}
+
+::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+:root {
+  --border-width: 1px;
+  --bold-font-weight: bold;
+  --button-font-family: sans-serif;
+  --button-font-size: 1.25em;
+  --button-font-weight: var(--bold-font-weight);
+  --button-line-height: 1.125rem;
+  --button-padding-y: 1em;
+  --button-padding-x: 3em;
+  --darken-2: rgba(0, 0, 0, .125);
+  --darken-3: rgba(0, 0, 0, .25);
+}
+
+
+/* Basscss Btn Sizes */
+
+.btn-small {
+  padding: var(--button-small-padding-y) var(--button-small-padding-x);
+}
+
+.btn-big {
+  padding: var(--button-big-padding-y) var(--button-big-padding-x);
+}
+
+.btn-narrow {
+  padding-left: var(--button-narrow-padding-x);
+  padding-right: var(--button-narrow-padding-x);
+}
+
+:root {
+  --button-small-padding-y: .25rem;
+  --button-small-padding-x: .5rem;
+  --button-big-padding-y: 1em;
+  --button-big-padding-x: 3em;
+  --button-narrow-padding-x: .5rem;
+}
+
+{{end}}

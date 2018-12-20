@@ -1,0 +1,5 @@
+{
+	"id": "tut008",
+	"title": "How to compile crypto coin static daemon on Ubuntu",
+	"content": "<p><strong>First install build essentials and git tool:</strong></p><p><code>sudo apt-get install git build-essential</code></p><p>Read info from GitHub source page of coin which dependencies are required and install them.</p><p><em>Examples(not same for all coins):</em></p><p><code>sudo apt-get install libboost-all-dev libminiupnpc-dev</code></p><p><code>sudo apt-get install libssl-dev libdb5.1-dev libdb5.1++-dev libboost-all-dev</code></p><p><strong>Clone git:</strong></p><p><code>git clone https://github.com/YOUR-COIN.git</code></p><p><strong>Browse:</strong></p><p><code>cd YOUR-COIN/src</code></p><p><strong>Compile:</strong></p><p><code>make -f makefile.unix clean</code></p><p><code>make STATIC=1 -f makefile.unix YOUR-COINd</code><br />In the most cases just enter \"make STATIC=1 -f makefile.unix \", first letter of YOUR-COIN and press TAB</p><p>If all pass good you will have YOUR-COINd in src folder</p><p><code>strip YOUR-COINd</code></p>"
+}

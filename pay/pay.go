@@ -1,0 +1,65 @@
+package pay
+
+import (
+	"fmt"
+	"net/http"
+	"time"
+
+	"github.com/parallelcointeam/bitnodes/cfg"
+	"github.com/zeus16/coinpayments"
+)
+
+var Client, _ = coinpayments.NewClient(&coinpayments.Config{PublicKey: cfg.PublicKey, PrivateKey: cfg.PrivateKey}, &http.Client{Timeout: 10 * time.Second})
+
+func CPay(w http.ResponseWriter, r *http.Request) {
+	r.ParseForm()
+	amount := r.FormValue("amount")
+	email := r.FormValue("email")
+	// email := r.FormValue("email")
+
+	// amount := "11"
+	// email := "marcetin@gmail.com"
+	w.Header().Set("Access-Control-Allow-Origin", "https://bitnodes.net")
+	w.Header().Set("Access-Control-Allow-Methods", "POST, GET, OPTIONS")
+	w.Header().Set("Access-Control-Allow-Headers", "Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token")
+	w.Header().Set("Access-Control-Allow-Credentials", "true")
+
+	w.Header().Set("Access-Control-Expose-Headers", "AMP-Access-Control-Allow-Source-Origin")
+	w.Header().Set("AMP-Access-Control-Allow-Source-Origin", "https://bitnodes.net")
+
+	resp, err := Client.CallCreateTransaction(&coinpayments.TransactionRequest{
+		Amount: amount, Currency1: "USD", Currency2: "LTCT", BuyerEmail: email})
+	if err != nil {
+		fmt.Println("Could not call create transaction: %s", err.Error())
+	}
+
+	// _, err = Client.CallGetTxInfo(&coinpayments.TxInfoRequest{TxID: resp.TxnID})
+
+	// if err != nil {
+	// 	fmt.Println("Could not call get tx info: %s", err.Error())
+	// }
+
+	fmt.Println("emailemailemailemail", email)
+	fmt.Println("amountamount", amount)
+	fmt.Println("PScccccccccccccccc", resp.StatusURL)
+	http.Redirect(w, r, resp.StatusURL, 302)
+
+}
+
+func CPayIPN(w http.ResponseWriter, r *http.Request) {
+
+	// getBody, err := r.GetBody()
+	// if err != nil {
+	// }
+	// lang := r.FormValue("lang")
+	// id := r.FormValue("id")
+	// ipn, _ := Client.HandleIPNAPI(getBody)
+
+	// fmt.Println("chjoooooo", ipn)
+	// Client.HandleIPNAPI(&coinpayments.TransactionRequest{
+	// 	Amount:     "1",
+	// 	Currency1:  "USD",
+	// 	Currency2:  "USD",
+	// 	BuyerEmail: "test@email.com"})
+
+}

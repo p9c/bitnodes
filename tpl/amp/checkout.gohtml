@@ -1,0 +1,72 @@
+{{define "canonical"}}https://bitnodes.net/{{end}}
+{{define "photos"}}/s/imgs/mainbgs.jpg{{end}}
+{{define "content"}}
+
+<main>
+    <section id="content" class="p4 content row ">
+       
+
+  <div class="shopping-cart">
+        <div class="p1">[[$item.Name]] [[$item.Price]]</div>
+        <div class="details pb1">
+          <div class="px1">Color: [[$item.Resources]]</div>
+          <div class="px1">Size: [[$item.Nodes]]</div>
+        </div>
+    </div>
+    <p>Back to <a href="/samples_templates/product_page/preview/">product</a> sample.</p>
+    </section>
+
+
+
+
+
+
+
+    <form class="cart" method="post" action-xhr="https://www.coinpayments.net/index.php" target="_top">
+
+
+
+	<input type="hidden" name="cmd" value="_pay_simple">
+	<input type="hidden" name="reset" value="1">
+	<input type="hidden" name="merchant" value="606a89bb575311badf510a4a8b79a45e">
+
+	
+	<input type="hidden" name="currency" value="USD">
+	<input type="hidden" name="amountf" value="100.00">
+
+	<input type="hidden" name="item_name" value="BitNode">
+	<input type="hidden" name="item_number" value="sn1">
+    	
+    	
+	<input type="hidden" name="invoice" value="Invoice">
+
+    
+    
+	<input type="hidden" name="on1" value="Coin Source Code Git Hub Address">
+	<input type="hidden" name="ov1" value="https://github.com/parallelcointeam">
+
+
+  
+    
+	{{/* <input type="hidden" name="on2" value="Nodes">
+	<input type="hidden" name="ov2" value="NodesValue"> */}}
+
+
+
+	<input type="hidden" name="email" value="ByersEmail">
+
+
+	<input type="hidden" name="success_url" value="https://www.coinpayments.net/index.php?cmd=acct_home">	
+	<input type="hidden" name="cancel_url" value="https://www.coinpayments.net/merchant-tools">	
+	<input type="hidden" name="return_url" value="https://www.coinpayments.net/merchant-tools">	
+
+
+
+
+	<input type="image" src="https://www.coinpayments.net/images/pub/add-to-cart-sm.png" alt="Add to Cart...">
+</form>
+
+
+
+</main>
+{{end}}

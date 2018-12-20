@@ -1,0 +1,5 @@
+{
+	"id": "tut003",
+	"title": "fatal error: opening dependency file obj/groestl.d: No such file or directory",
+	"content": "<p>Solved with:</p><p><code><br />mkdir -p src/obj/zerocoin<br />chmod +x src/leveldb/build_detect_platform<br />cd src/leveldb &amp;&amp; make libleveldb.a libmemenv.a<br /></code></p>"
+}

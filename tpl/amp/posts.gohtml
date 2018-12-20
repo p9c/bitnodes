@@ -1,0 +1,17 @@
+{{define "title"}}ParallelCoin.INFO | Log{{end}}
+{{define "canonical"}}https://parallelcoin.info/log{{end}}
+{{define "content"}}
+<main class=" ">
+    <section class="flex flex-wrap bggray py4">
+    {{ range .Posts}}
+        <div class="px2 col-12 flex flex-column bgwhite">
+            <h2>{{ .Title }}</h2>
+            <span>{{ .Excerpt }}</span>
+            <span>{{ .Date }}</span>
+            <span>{{ .Image }}</span>
+            <p>{{ .Content }}</p>
+        </div>
+        {{end}}
+    </section>
+</main>
+{{end}}

@@ -1,0 +1,67 @@
+{{define "order"}}
+<div class="order">
+{{/* <form class="cart" method="post" action-xhr="https://www.coinpayments.net/index.php" target="_top"> */}}
+{{/* <form action="https://www.coinpayments.net/index.php" method="post"> */}}
+
+    <div class="flex flex-column variations">
+        <div class="flex flex-row flex-wrap content-stretch">
+            <label for="nodes" class="label value">Nodes</label>
+            <amp-selector name="nodes" layout="container"
+                  on="select:AMP.setState({ node: {selectedNodes: event.targetOption}})"
+                  [selected]="(node[node.selectedResources].nodes[node.selectedNodes] != 'unavailable')
+                      ? node.selectedNodes
+                      : node[node.selectedResources].defaultNodes">
+                <span option="1" class="label value"
+                  [class]="(node[node.selectedResources].nodes['1'] != 'unavailable')
+                      ? ''
+                      : 'unavailable'">1</span>
+                <span option="3" class="label value" selected
+                  [class]="(node[node.selectedResources].nodes['3'] != 'unavailable')
+                      ? ''
+                      : 'unavailable'">3</span>
+                <span option="5" class="label value"
+                  [class]="(node[node.selectedResources].nodes['5'] != 'unavailable')
+                      ? ''
+                      : 'unavailable'">5</span>
+                <span option="10" class="label unavailable"
+                  [class]="(node[node.selectedResources].nodes['10'] != 'unavailable')
+                      ? ''
+                      : 'unavailable'">10</span>
+            </amp-selector>
+        </div>
+        <div class="my3 flex flex-row flex-wrap content-stretch">
+            <label for="resources" class="value label">Resources</label>
+            <amp-selector name="resources"
+                  layout="container"
+                  [selected]="node.selectedResources"
+                  on="select:AMP.setState({
+                    node: {
+                      selectedResources: event.targetOption,
+                      selectedSlideForShared: 0,
+                      selectedSlideForDedicated: 0,
+                      selectedNodes: node[event.targetOption].nodes[node.selectedNodes] != 'unavailable' ? node.selectedNodes : node[event.targetOption].defaultNodes
+                    }
+                  })">
+                <span option="shared" selected class="value shared">Shared</span>
+                <span option="dedicated" class="value dedicated">Dedicated</span>
+            </amp-selector>
+        </div>
+    </div>
+
+
+
+
+
+
+    <span [text]="node[node.selectedResources].nodes[node.selectedNodes]">$0</span>
+    
+    <div class="items-center flex my1">
+
+        <button class="btn bor" on="tap:checkout">deploy</button>
+    </div>
+{{ template "checkout" .}}
+
+
+</div>
+{{end}}
+

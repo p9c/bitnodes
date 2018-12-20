@@ -1,0 +1,15 @@
+{{define "nav"}}
+<div class="hmenu" [class]="hmenu ? 'hmenuo' : 'hmenu'">
+    <button on="tap:AMP.setState({hmenu: !hmenu})" class="officon bgtrans"><span></span><span></span><span></span></button>
+
+<nav id="nav" class="bgblack">
+    <button on="tap:AMP.navigateTo(url='/amp/my-nodes')" class="btn not-rounded bgblack logo ">My Nodes</button>
+    <button on="tap:AMP.navigateTo(url='/amp/announcements')" class="btn not-rounded bgblack logo ">Announcements</button>
+    <button on="tap:AMP.navigateTo(url='/amp/tutorials')" class="btn not-rounded bgblack logo ">Tutorials</button>
+    <button on="tap:AMP.navigateTo(url='/amp/about')" class="btn not-rounded bgblack logo ">About</button>
+    <button on="tap:AMP.navigateTo(url='/amp/explorers')" class="btn not-rounded bgblack logo ">Explorers</button>
+    <button on="tap:AMP.navigateTo(url='/amp/status')" class="btn not-rounded bgblack logo ">Status</button>
+    <button on="tap:AMP.navigateTo(url='/amp/contact')" class="btn not-rounded bgblack logo ">Contact</button>
+</nav>
+</div>
+{{end}}

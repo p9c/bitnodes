@@ -1,0 +1,347 @@
+{{define "nodescss"}}
+section#nodes {
+  position: fixed;
+
+    top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+section#nodes:after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  content: "";
+  box-shadow: inset 0 0 111px 11px black;
+  z-index: 11111;
+}
+
+.container {
+  position: relative;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  width: 100%;
+  height: 1024px;
+  z-index: 1;
+}
+
+.nodes-container {
+  width: 2048px;
+  height: 2048px;
+
+  opacity: 0.75;
+  overflow: visible;
+}
+
+.nodes-container.rot1 {
+  transform: translateX(350px);
+  animation: rotatea 111s 1s infinite;
+}
+
+.nodes-container.rot2 {
+          transform: translateX(550px);
+  animation: rotateb 88s 5s infinite;
+}
+
+.nodes-container.rot3 {
+          transform: translateX(-350px);
+  animation: rotatec 55s 8s infinite;
+}
+
+.nodes {
+  width: 100%;
+  height: auto;
+}
+.nodes circle {
+  stroke: var(--trans-white);
+  fill: none;
+}
+.nodes > g > g:nth-of-type(3n) circle {
+  stroke: var(--trans-white);
+}
+.nodes > g > g:nth-of-type(4n) circle {
+  stroke: var(--trans-black);
+}
+
+.nodes-large {
+  overflow: visible;
+}
+.nodes-large > g {
+  
+          transform: translateY(2048px);
+  opacity: 0;
+  will-change: transform, opacity;
+}
+.nodes-large g:nth-of-type(1) {
+  
+          animation: up 16.5s infinite;
+}
+.nodes-large g:nth-of-type(1) g {
+  
+          transform: translateX(350px);
+}
+.nodes-large g:nth-of-type(1) circle {
+  
+          animation: wobble 13s infinite ease-in-out;
+}
+.nodes-large g:nth-of-type(2) {
+  
+          animation: up 15.25s 250ms infinite;
+}
+.nodes-large g:nth-of-type(2) g {
+  
+          transform: translateX(450px);
+}
+.nodes-large g:nth-of-type(2) circle {
+  
+          animation: wobble 13s infinite ease-in-out;
+}
+.nodes-large g:nth-of-type(3) {
+  
+          animation: up 26s 750ms infinite;
+}
+.nodes-large g:nth-of-type(3) g {
+  
+          transform: translateX(700px);
+}
+.nodes-large g:nth-of-type(3) circle {
+  
+          animation: wobble 13s infinite ease-in-out;
+}
+.nodes-large g:nth-of-type(4) {
+  
+          animation: up 15.5s 1.5s infinite;
+}
+.nodes-large g:nth-of-type(4) g {
+  
+          transform: translateX(500px);
+}
+.nodes-large g:nth-of-type(4) circle {
+  
+          animation: wobble 13s infinite ease-in-out;
+}
+.nodes-large g:nth-of-type(5) {
+  
+          animation: up 16.5s 4s infinite;
+}
+.nodes-large g:nth-of-type(5) g {
+  
+          transform: translateX(675px);
+}
+.nodes-large g:nth-of-type(5) circle {
+  
+          animation: wobble 13s infinite ease-in-out;
+}
+
+.nodes-small {
+  overflow: visible;
+}
+.nodes-small > g {
+  
+          transform: translateY(1024px);
+  opacity: 0;
+  will-change: transform, opacity;
+}
+.nodes-small g circle {
+  
+          transform: scale(0);
+}
+.nodes-small g:nth-of-type(1) {
+  
+          animation: up 19.25s infinite;
+}
+.nodes-small g:nth-of-type(1) g {
+  
+          transform: translateX(350px);
+}
+.nodes-small g:nth-of-type(1) circle {
+  
+          animation: wobble 13s infinite ease-in-out;
+}
+.nodes-small g:nth-of-type(2) {
+  
+          animation: up 19.75s infinite;
+}
+.nodes-small g:nth-of-type(2) g {
+  
+          transform: translateX(750px);
+}
+.nodes-small g:nth-of-type(2) circle {
+  
+          animation: wobble 13s infinite ease-in-out;
+}
+.nodes-small g:nth-of-type(3) {
+  
+          animation: up 19.25s 250ms infinite;
+}
+.nodes-small g:nth-of-type(3) g {
+  
+          transform: translateX(350px);
+}
+.nodes-small g:nth-of-type(3) circle {
+  
+          animation: wobble 13s 250ms infinite ease-in-out;
+}
+.nodes-small g:nth-of-type(4) {
+  
+          animation: up 15.75s 325ms infinite;
+}
+.nodes-small g:nth-of-type(4) g {
+  
+          transform: translateX(180px);
+}
+.nodes-small g:nth-of-type(4) circle {
+  
+          animation: wobble 13s 325ms infinite ease-in-out;
+}
+.nodes-small g:nth-of-type(5) {
+  
+          animation: up 16s 125ms infinite;
+}
+.nodes-small g:nth-of-type(5) g {
+  
+          transform: translateX(350px);
+}
+.nodes-small g:nth-of-type(5) circle {
+  
+          animation: wobble 13s 250ms infinite ease-in-out;
+}
+.nodes-small g:nth-of-type(6) {
+  
+          animation: up 19.13s 550ms infinite;
+}
+.nodes-small g:nth-of-type(6) g {
+  
+          transform: translateX(650px);
+}
+.nodes-small g:nth-of-type(6) circle {
+  
+          animation: wobble 15s 325ms infinite ease-in-out;
+}
+.nodes-small g:nth-of-type(7) {
+  
+          animation: up 19.25s 550ms infinite;
+}
+.nodes-small g:nth-of-type(7) g {
+  
+          transform: translateX(480px);
+}
+.nodes-small g:nth-of-type(7) circle {
+  
+          animation: wobble 13s 325ms infinite ease-in-out;
+}
+.nodes-small g:nth-of-type(8) {
+  
+          animation: up 27s 500ms infinite;
+}
+.nodes-small g:nth-of-type(8) g {
+  
+          transform: translateX(330px);
+}
+.nodes-small g:nth-of-type(8) circle {
+  
+          animation: wobble 15s 525ms infinite ease-in-out;
+}
+.nodes-small g:nth-of-type(9) {
+  
+          animation: up 19.25s 533ms infinite;
+}
+.nodes-small g:nth-of-type(9) g {
+  
+          transform: translateX(230px);
+}
+.nodes-small g:nth-of-type(9) circle {
+          animation: wobble 13s 275ms infinite ease-in-out;
+}
+.nodes-small g:nth-of-type(10) {
+          animation: up 29s 1900ms infinite;
+}
+.nodes-small g:nth-of-type(10) g {
+          transform: translateX(730px);
+}
+.nodes-small g:nth-of-type(10) circle {
+          animation: wobble 13s 1905ms infinite ease-in-out;
+}
+
+
+@keyframes wobble {
+  33% {
+            transform: translateX(-50px);
+  }
+  66% {
+            transform: translateX(50px);
+  }
+}
+
+@keyframes up {
+  0% {
+    opacity: 0;
+  }
+  10%, 90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+            transform: translateY(-1024px);
+  }
+}
+
+@keyframes rotatea {
+  0% {
+            transform: rotate(0deg);
+  }
+  30% {
+    
+            transform: rotate(333deg);
+  }
+  90% {
+    
+            transform: rotate(111deg);
+  }
+  100% {
+            transform: rotate(0deg);
+  }
+}
+
+@keyframes rotateb {
+  0% {
+            transform: rotate(0deg);
+  }
+  20% {
+    
+            transform: rotate(-111deg);
+  }
+  70% {
+    
+            transform: rotate(333deg);
+  }
+  100% {
+            transform: rotate(0deg);
+  }
+}
+
+@keyframes rotatec {
+  0% {
+            transform: rotate(0deg);
+  }
+  50% {
+    
+            transform: rotate(-333deg);
+  }
+  100% {
+            transform: rotate(0deg);
+  }
+}
+
+{{end}}

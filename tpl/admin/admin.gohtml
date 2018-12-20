@@ -1,0 +1,37 @@
+{{ define "content"}}
+{{ template "nav" .}}
+<section class="section">
+<div class="card">
+  <div class="card-content">
+{{range .Languages}}
+<a href="/admin/pages/{{.}}">
+<button class="button is-large">{{.}}</button>
+</a>
+{{end}}
+</div>
+</div>
+<div class="card">
+  <div class="card-content">
+    <a href="/admin/posts/"><button class="button is-large">Posts</button></a>
+  </div>
+</div>
+<div class="card">
+  <div class="card-content">
+    <a href="/admin/tutorials/"><button class="button is-large">Tutorials</button></a>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-content">
+    <a href="/admin/orders/"><button class="button is-large">Orders</button></a>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-content">
+    <a href="/admin/subscriptions/"><button class="button is-large">Subscriptions</button></a>
+  </div>
+</div>
+</section>
+
+{{end}}

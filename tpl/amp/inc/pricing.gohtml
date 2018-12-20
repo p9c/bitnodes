@@ -1,0 +1,24 @@
+{{define "pricing"}}
+<button class="btn bor" on="tap:pricing">Pricing</button>
+<amp-lightbox id="pricing" layout="nodisplay" class="modalbox-modal ">
+    <button on="tap:pricing.close" class="btn" >✖</button>
+    <amp-selector role="tablist" layout="container" class="ampTabContainer">
+        <button role="tab" class="tabButton" selected option="a">Node</button>
+        <div role="tabpanel" class="tabContent">
+            <h3>Node</h3>
+            <table class="table"><thead><tr><th>AVAILABLE ONLY AS UPGRADE</th><th></th><th></th><th></th><th></th><th>ONE YEAR FEE</th></tr></thead><tbody><tr><td>Shared Resources and IP</td><td>1 of 32 locations</td><td>Vilnius LT, Keflavik IS, London UK, Stockholm SE, Amsterdam NL, Munich DE, Nuremberg DE, Frankfurt DE, Gravelines FR, Paris FR, Strasbourg FR, Roubaix FR, Sofia BL, Dallas USA, Los Angeles USA, Jacksonville USA , New Jersey USA, Chicago USA, Miami USA, New York USA, Tustin USA, Buffalo USA, Atlanta USA, Seattle USA, Phoenix USA, Piscataway USA, San Jose USA, Port Edwards USA, Beauharnois CA, Moscow RU, Hong Kong CN, Sydney AU</td><td>RPC allow user IP, 24/7/365 monitoring</td><td></td><td>$99</td></tr><tr><td>Dedicated Resources and IP</td><td>1 of 32 locations</td><td>Vilnius LT, Keflavik IS, London UK, Stockholm SE, Amsterdam NL, Munich DE, Nuremberg DE, Frankfurt DE, Gravelines FR, Paris FR, Strasbourg FR, Roubaix FR, Sofia BL, Dallas USA, Los Angeles USA, Jacksonville USA , New Jersey USA, Chicago USA, Miami USA, New York USA, Tustin USA, Buffalo USA, Atlanta USA, Seattle USA, Phoenix USA, Piscataway USA, San Jose USA, Port Edwards USA, Beauharnois CA, Moscow RU, Hong Kong CN, Sydney AU</td><td>RPC allow user IP, 24/7/365 monitoring</td><td>4 CPU, 4096MB RAM, 100GB SSD, 1 IPv4 Address, 100Mbps Port Speed</td><td>$299</td></tr></tbody></table>
+        </div>
+        <button role="tab" class="tabButton" selected option="b">Shared</button>
+        <div role="tabpanel" class="tabContent">
+            <h3>Shared</h3>
+            <table class="table"><thead><tr><th></th><th>Package</th><th>Locations</th><th>ONE YEAR FEE</th></tr></thead><tbody><tr><td>3 NODES</td><td>3 locations</td><td>Vilnius LT, Dallas USA, Nuremberg DE</td><td>$399.99</td></tr><tr><td>5 NODES</td><td>5 locations</td><td>Vilnius LT, Dallas USA, Nuremberg DE, Los Angeles USA, London UK</td><td>$599.99</td></tr><tr><td>10 NODES</td><td>10 locations</td><td>Vilnius LT, Dallas USA, Nuremberg DE, Los Angeles USA, London UK, Moscow RU, New Jersey USA, Hong Kong CN, Chicago USA, Amsterdam NL</td><td>$999.99</td></tr><tr><td>Shared Resources and IP</td><td>24/7/365 monitoring, RPC allow user IP, Block Explorer</td><td></td><td></td></tr></tbody></table>
+        </div>
+        <button role="tab" class="tabButton" selected option="c">Dedicated</button>
+        <div role="tabpanel" class="tabContent">
+            <h3>Dedicated</h3>
+            <table class="table"><thead><tr><th></th><th>Package</th><th>Locations</th><th>ONE YEAR FEE</th></tr></thead><tbody><tr><td>3 NODES</td><td>3 locations</td><td>Vilnius LT, Dallas USA, Nuremberg DE</td><td>$1399.99</td></tr><tr><td>5 NODES</td><td>5 locations</td><td>Vilnius LT, Dallas USA, Nuremberg DE, Los Angeles USA, London UK</td><td>$1999.99</td></tr><tr><td>10 NODES</td><td>10 locations</td><td>Vilnius LT, Dallas USA, Nuremberg DE, Los Angeles USA, London UK, Moscow RU, New Jersey USA, Hong Kong CN, Chicago USA, Amsterdam NL</td><td>$2999.99</td></tr><tr><td>Dedicated resources and IP</td><td>24/7/365 monitoring, RPC allow user IP, Block Explorer</td><td>4 CPU, 4096MB RAM, 100GB SSD, 1 IPv4 Address, 100Mbps Port Speed</td><td></td></tr></tbody></table>
+        </div>
+    </amp-selector>
+</amp-lightbox>
+{{end}}
+

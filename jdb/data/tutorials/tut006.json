@@ -1,0 +1,5 @@
+{
+	"id": "tut006",
+	"title": "fatal error: opening dependency file obj/zerocoin/Accumulator.d",
+	"content": "<p>For Error on Linux compilation:</p><p><strong>zerocoin/Accumulator.cpp:xxx:1: fatal error: opening dependency file obj/zerocoin/Accumulator.d: No such file or directory<br />compilation terminated.</strong></p><p>Use the following command in src/ folder to fix:</p><p><code>mkdir -p obj/zerocoin &amp;&amp; chmod +x leveldb/build_detect_platform‏</code></p><p><em>Compile again</"
+}

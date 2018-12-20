@@ -1,0 +1,13 @@
+{{define "header"}}
+<header id="header" class="max-width-w mx-auto px4 flex justify-between ">
+    <button on="tap:AMP.navigateTo(url='/amp')" class="bgtrans logo ">
+        {{ template "logo"}}
+    </button>
+    {{/* <button on="tap:AMP.setState({menuico: !menuico}),navigation.toggle" class="btn officon menu-toggle navicon menu1">
+            <span></span>
+            <span></span>
+            <span></span>
+    </button> */}}
+
+    {{ template "nav" }}
+</header>{{end}}

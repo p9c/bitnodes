@@ -1,0 +1,24 @@
+body {
+  background: #cfcfcf;
+  min-height: 100vh;
+  box-sizing: border-box;
+  font-weight: 300;
+  line-height: 1.5;
+  margin: 0 auto;
+  font-size: 112%;
+}
+
+.login{
+  width: 100%;
+  height: 100vh;
+  /* content:"<form method=\"post\" action=\"/login\" class=\"login\"><div class=\"field\"><label for=\"name\">User name</label><div class=\"control\"><input type=\"text\" id=\"name\" class=\"input\" name=\"name\"></div></div><div class=\"field\"><label for=\"password\">Password</label><div class=\"control\"><input type=\"password\" class=\"input\" id=\"password\" name=\"password\"></div></div><div class=\"field\"><div class=\"field\"><button type=\"submit\" class=\"button is-primary\">Login</button></div></div></div></form>" */
+}
+.login input, .login button{
+  width: 100%;
+  height: 31vh;
+  font-size: 12vh;
+  text-align: center;
+}
+.login button{
+  height: 38vh;
+}

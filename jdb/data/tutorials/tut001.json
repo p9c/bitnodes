@@ -1,0 +1,5 @@
+{
+	"id": "tut001",
+	"title": "Recipe for target 'build/rpcrawtransaction.o' failed",
+	"content": "<p><code><br>src/rpcrawtransaction.cpp:245:77: required from here<br>/usr/include/boost/variant/get.hpp:178:5: error: invalid application of ‘sizeof’ to incomplete type ‘boost::STATIC_ASSERTION_FAILURE’<br>BOOST_STATIC_ASSERT_MSG(<br>^<br>Makefile:2222: recipe for target 'build/rpcrawtransaction.o' failed<br>make: *** [build/rpcrawtransaction.o] Error<br></code></p><p>src/rpcrawtransaction.cpp around line 242</p><p><code>const CScriptID&amp; hash = boost::get(address);</code></p><p>Change to:</p><p><code>const CScriptID&amp; hash = boost::get(address);</code></p>"
+}

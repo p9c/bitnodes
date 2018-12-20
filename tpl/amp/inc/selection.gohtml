@@ -1,0 +1,31 @@
+{{define "selection"}}
+<form class="cart" method="post" action-xhr="//localhost:8099/amp/co" target="_top">
+{{/* <form class="cart" method="post" action-xhr="https://www.coinpayments.net/index.php" target="_top"> */}}
+{{/* <form action="https://www.coinpayments.net/index.php" method="post"> */}}
+
+   
+
+    <div class="single_variation_wrap">
+        <div class="woocommerce-variation single_variation">
+            <div class="" [hidden]="node.selectedResources != 'shared'">
+                <div [hidden]="node.selectedNodes != '1'">{{ template "sn1"}}</div>
+                <div [hidden]="node.selectedNodes != '3'">{{ template "sn3"}}</div>
+                <div [hidden]="node.selectedNodes != '5'">{{ template "sn5"}}</div>
+                <div [hidden]="node.selectedNodes != '10'">{{ template "sn10"}}</div>
+            </div>
+            <div class="" [hidden]="node.selectedResources != 'dedicated'">
+                <div [hidden]="node.selectedNodes != '1'">{{ template "dn1"}}</div>
+                <div [hidden]="node.selectedNodes != '3'">{{ template "dn3"}}</div>
+                <div [hidden]="node.selectedNodes != '5'">{{ template "dn5"}}</div>
+                <div [hidden]="node.selectedNodes != '10'">{{ template "dn10"}}</div>
+            </div>
+        </div>
+    </div>
+    <p class="price">Price: <span [text]="node[node.selectedResources].nodes[node.selectedNodes]">$0</span> per year</p>
+    
+ 
+
+
+</form>
+{{end}}
+
