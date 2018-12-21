@@ -1,0 +1,36 @@
+{{define "pay"}}
+<div class="mb4 p3 htabcontent tbg">
+    <div class="row">
+        <div class="col ">
+
+
+ <div verify-error>
+                    <template type="amp-mustache">There is a mistake in the form! {{`{{#verifyErrors}}{{message}}{{/verifyErrors}}`}}</template>
+                </div>
+                <div submitting>
+                    <template type="amp-mustache">Form submitting... Thank you for waiting {{`{{email}}`}}.</template>
+                </div>
+                <div submit-success>
+                    <template type="amp-mustache">
+                        <div class="price">{{`{{amount}}`}}</div>
+                        Address      {{`{{address}}`}}
+                        TxnID        {{`{{txn_id}}`}}
+                        ConfirmsNeeded  {{`{{confirms_needed}}`}}
+
+                        <amp-date-countdown timestamp-seconds="{{`{{timeout}}`}}" layout="fixed-height" height="100">
+                            <template type="amp-mustache">
+                                <p class="p1">{{`{{m}}`}} minutes and {{`{{s}}`}} seconds until timeout</p>
+                            </template>
+                        </amp-date-countdown>
+                        <amp-img src="{{`{{qrcode_url}}`}}" width="222" height="222" layout="responsive"  alt="Payment Address QR Code Image"></amp-img>
+                        <button class="btn" on="tap:AMP.navigateTo(url='{{`{{status_url}}`}}', target='_blank')">Payment sent</button>
+                    </template>
+                </div>
+                <div submit-error>
+                    <template type="amp-mustache">Oops! {{`{{email}}`}}, {{`{{amount}}`}}.</template>
+                </div>
+                
+        </div>
+    </div>
+</div>
+{{end}}

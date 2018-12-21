@@ -1,19 +1,19 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"net/http"
 
 	"github.com/gorilla/handlers"
 	"github.com/gorilla/mux"
-	"github.com/parallelcointeam/bitnodes/pay"
 	"github.com/parallelcointeam/bitnodes/rts"
 )
 
 var r = mux.NewRouter()
 
 func main() {
-
+	port := "8999"
 	r.PathPrefix("/s/").Handler(http.StripPrefix("/s/", http.FileServer(http.Dir("./tpl/static/"))))
 	// r.PathPrefix("/amp/").Handler(http.StripPrefix("/amp/", http.FileServer(http.Dir("./tpl/amp/"))))
 
@@ -50,7 +50,7 @@ func main() {
 
 	// r.HandleFunc("/api/{lang}", rts.ApiHandler)
 
-	r.HandleFunc("/api/pay", pay.CPay).Methods("GET")
+	r.HandleFunc("/api/pay", rts.CPay).Methods("GET")
 	// r.HandleFunc("/api/ipn", pay.CPayIPN).Methods("POST")
 
 	r.HandleFunc("/amp", rts.AmpHandler)
@@ -65,27 +65,28 @@ func main() {
 	// r.HandleFunc("/amp/{lang}/log/", rts.AmpPostsHandler)
 
 	// http.Handle("/", r)
-	// http.ListenAndServe(":8099", nil)
+	// http.ListenAndServe(":8999", nil)
 
 	r.HandleFunc("/", rts.AmpFrontHandler) // GET
 
-	// log.Fatal(http.ListenAndServe(":8099", (r)))
-	//	log.Fatal(http.ListenAndServe(":8099", handlers.CORS()(r)))
+	// log.Fatal(http.ListenAndServe(":8999", (r)))
+	//	log.Fatal(http.ListenAndServe(":8999", handlers.CORS()(r)))
 
 	// headersOk := handlers.AllowedHeaders([]string{"X-Requested-With", "Access-Control-Allow-Origin", "AMP-Access-Control-Allow-Source-Origin"})
-	// originsOk := handlers.AllowedOrigins([]string{"http://127.0.0.1:8099"})
+	// originsOk := handlers.AllowedOrigins([]string{"http://127.0.0.1:8999"})
 	// methodsOk := handlers.AllowedMethods([]string{"GET", "HEAD", "POST", "PUT", "OPTIONS"})
 
 	// headersOk := handlers.AllowedHeaders([]string{"X-Requested-With", "Access-Control-Allow-Origin"})
-	// originsOk := handlers.AllowedOrigins([]string{"http://localhost:8099"})
+	// originsOk := handlers.AllowedOrigins([]string{"http://localhost:8999"})
 	// methodsOk := handlers.AllowedMethods([]string{"GET", "HEAD", "POST", "PUT", "OPTIONS"})
 
 	// start server listen
 	// with error handling
-	// log.Fatal(http.ListenAndServe(":8099", r))
+	// log.Fatal(http.ListenAndServe(":8999", r))
+	fmt.Println("Listening on port:", port)
+	log.Fatal(http.ListenAndServe(":"+port, handlers.CORS()(r)))
 
-	log.Fatal(http.ListenAndServe(":8099", handlers.CORS()(r)))
-	// log.Fatal(http.ListenAndServe(":8099", r))
+	// log.Fatal(http.ListenAndServe(":8999", r))
 
 	// r.Schemes("https")
 

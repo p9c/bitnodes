@@ -1,0 +1,43 @@
+{{define "nodejson"}}
+  <amp-state id="node">
+    <script type="application/json">
+    {
+      "selectedResources": "shared",
+      "selectedNodes": "node1",
+      "shared": {
+        "nodes": {
+          "node1": "100.00",
+          "node3": "400.00",
+          "node5": "600.00",
+          "node10": "1000.00"
+        },
+        "defaultNodes": "node1"
+      },
+      "dedicated": {
+        "nodes": {
+          "node1": "200.00",
+          "node3": "600.00",
+          "node5": "800.00",
+          "node10": "1500.00"
+        },
+        "defaultNodes": "node1"
+      }
+    }
+    </script>
+</amp-state>
+
+<amp-state id="coin">
+    <script type="application/json">
+    {
+      "selectedCoin": "LTCT",
+      "coins": {
+          "ltc": "LTCT",
+          "btc": "BTC",
+          "ltc": "LTC",
+        },
+        "defaultCoin": "LTCT"
+      }
+    }
+    </script>
+  </amp-state>
+{{end}}
