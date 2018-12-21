@@ -1,0 +1,23 @@
+{
+	"txnid": "",
+	"nick": "",
+	"csc": "",
+	"email": "",
+	"pack": "",
+	"amount": "",
+	"amounti": "",
+	"timeout": 0,
+	"status_url": "",
+	"qrcode_url": "",
+	"address": "",
+	"time": 0,
+	"status": "",
+	"status_text": "",
+	"currency": "",
+	"cnfnd": "",
+	"confirms": "",
+	"fee": "",
+	"feei": "",
+	"received_amount": "",
+	"received_confirms": ""
+}

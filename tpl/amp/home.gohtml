@@ -6,9 +6,9 @@
 
 <main [class]="tabTab ? 'tab' : 'tabfront'" role="main">
 
-    <form method="get" action-xhr="http://localhost:8999/api/pay" target="_top">
+    <form method="get" action-xhr="http://localhost:8999/api/pay" target="_top" on="submit-success:taborder.hide,tabpay.show,AMP.setState({orderurl:{url: txn_id }})">
 
-    <section id="tabfront" class="max-width-w mx-auto p4 content row ">
+    <section id="tabindex" class="max-width-w mx-auto p4 content row ">
         {{template "front"}}
     </section>
     <section id="taborder" class="max-width-w mx-auto p4 content row " hidden aria-hidden="true">

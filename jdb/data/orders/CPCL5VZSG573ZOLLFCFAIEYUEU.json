@@ -1,0 +1,23 @@
+{
+	"txnid": "CPCL5VZSG573ZOLLFCFAIEYUEU",
+	"nick": "=-oo]-[",
+	"csc": "['p;",
+	"email": "marcetin@gmail.com",
+	"pack": "shared node1 Pack",
+	"amount": "0.02502422",
+	"amounti": "",
+	"timeout": 1545382149,
+	"status_url": "https://www.coinpayments.net/index.php?cmd=status\u0026id=CPCL5VZSG573ZOLLFCFAIEYUEU\u0026key=7f6bec32a5d4bd8d1f42ae27ca1f448d",
+	"qrcode_url": "https://www.coinpayments.net/qrgen.php?id=CPCL5VZSG573ZOLLFCFAIEYUEU\u0026key=7f6bec32a5d4bd8d1f42ae27ca1f448d",
+	"address": "QebUi4tiujP93Z3Zts84ZUNC8Lc2yxRjBR",
+	"time": 1545378549,
+	"status": "0",
+	"status_text": "",
+	"currency": "LTCT",
+	"cnfnd": "0",
+	"confirms": "",
+	"fee": "",
+	"feei": "",
+	"received_amount": "",
+	"received_confirms": ""
+}

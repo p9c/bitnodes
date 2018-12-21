@@ -1,35 +1,33 @@
 package mod
 
 type Order struct {
-	ID string `json:"id"`
+	TxnID string `json:"txnid"`
 
-	Nick string `json:"id"`
-	ID   string `json:"id"`
+	Nick           string `json:"nick"`
+	CoinSourceCode string `json:"csc"`
+	Email          string `json:"email"`
+	Pack           string `json:"pack"`
 
-	Address    string `json:"address"`
-	TxnID      string `json:"txn_id"`
+	Amount  string `json:"amount"`
+	AmountI string `json:"amounti"`
+
+	Timeout   uint32 `json:"timeout"`
+	StatusURL string `json:"status_url"`
+	QRCodeURL string `json:"qrcode_url"`
+
+	Address string `json:"address"`
+
+	Time       uint32 `json:"time"`
 	Status     string `json:"status"`
 	StatusText string `json:"status_text"`
 	Currency   string `json:"currency"`
-	Confirms   string `json:"confirms"`
-	Amount     string `json:"amount"`
-	AmountI    string `json:"amounti"`
-	Fee        string `json:"fee"`
-	FeeI       string `json:"feei"`
-	DestTag    string `json:"dest_tag"`
 
-	Currency1        string `json:"currency1"`
-	Currency2        string `json:"currency2"`
-	Amount1          string `json:"amount1"`
-	Amount2          string `json:"amount2"`
-	Fee              string `json:"fee"`
-	BuyerName        string `json:"buyer_name"`
-	Email            string `json:"email"`
-	ItemName         string `json:"item_name"`
-	ItemNumber       string `json:"item_number"`
-	Invoice          string `json:"invoice"`
-	Custom           string `json:"custom"`
-	SendTX           string `json:"send_tx"` // the tx id of the payment to the merchant. only included when 'status' >= 100 and the payment mode is set to ASAP or nightly or if the payment is paypal passthru
+	ConfirmsNeeded string `json:"cnfnd"`
+	Confirms       string `json:"confirms"`
+
+	Fee  string `json:"fee"`
+	FeeI string `json:"feei"`
+
 	ReceivedAmount   string `json:"received_amount"`
 	ReceivedConfirms string `json:"received_confirms"`
 }

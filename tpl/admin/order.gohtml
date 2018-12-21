@@ -1,21 +1,31 @@
 {{ define "content"}}
      {{ template "nav" .}}
 <section class="section">
-<div class="card">
-  <div class="card-content">
-    <form method="post" action="/admin/">
-    <div class="field"><label class="label">ID: {{.ID}}</label>
-     <input type="hidden" id="id" name="id" value="{{.ID}}"></div>
-     </div>
-      <div class="field"><label class="label">Price</label>
-     <div class="control"><input class="input" type="text" id="price" name="price" value="{{.Price}}"></div>
-     </div>
-
-      <div class="field"><label class="label">Date</label>
-     <div class="control"><input class="input" type="date" id="date" name="date" value="{{.Date}}"></div>
-     </div>
-
-
+  <div class="card">
+    <div class="card-content">
+      <form method="post" action="/admin/">
+        <div class="field">
+          <label class="label">ID: {{.TxnID}}</label>
+        </div>
+      <div class="field">
+        <div class="control">
+          <label class="label">Amount: {{.Amount}}{{.Currency}}</label>
+        </div>
+      <div class="field">
+          <label class="label">Nick: {{.Nick}}</label>
+        </div>
+      <div class="field">
+        <div class="control">
+          <label class="label">Email: {{.Email}}</label>
+        </div>
+      </div>
+      <div class="field">
+        <div class="control">
+          <label class="label">Coin Source Code</label>
+          <input class="input" type="text" id="csc" name="csc" value="{{.CoinSourceCode}}">
+        </div>
+      </div>
+      </div>
 
     <button type="submit" class="button is-primary">Save</button>
 </form>

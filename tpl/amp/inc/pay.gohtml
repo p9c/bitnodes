@@ -4,27 +4,64 @@
         <div class="col ">
 
 
+<!-- The amp-state#myAmpState does not have a `bar` variable, so a warning
+     will be issued in development mode. -->
+
+
+
+        <p [text]="'This is a ' + orderurl.url + '.'">This is a dog.</p>
+<span [text]="submit-success.txn_id">000</span>
+
+<span [text]="orderurl[orderurl.url]"></span>
+ <h3>Before this time:</h3>{{`{{orderurl.url}}`}}
+                        <span [text]="order[order.amount]"></span>{{`{{order.amount}}`}}
  <div verify-error>
                     <template type="amp-mustache">There is a mistake in the form! {{`{{#verifyErrors}}{{message}}{{/verifyErrors}}`}}</template>
                 </div>
                 <div submitting>
-                    <template type="amp-mustache">Form submitting... Thank you for waiting {{`{{email}}`}}.</template>
+                    <template type="amp-mustache">Submitting payment... Thank you for waiting {{`{{email}}`}}.</template>
                 </div>
                 <div submit-success>
-                    <template type="amp-mustache">
-                        <div class="price">{{`{{amount}}`}}</div>
-                        Address      {{`{{address}}`}}
-                        TxnID        {{`{{txn_id}}`}}
-                        ConfirmsNeeded  {{`{{confirms_needed}}`}}
 
-                        <amp-date-countdown timestamp-seconds="{{`{{timeout}}`}}" layout="fixed-height" height="100">
-                            <template type="amp-mustache">
-                                <p class="p1">{{`{{m}}`}} minutes and {{`{{s}}`}} seconds until timeout</p>
+                       
+{{`{{event}}`}}
+<span [text]="event">000</span>
+
+                                       {{/* <amp-date-countdown timestamp-seconds="{{`{{timeout}}`}}" layout="fill">
+    <template type="amp-mustache">
+        <p class="p1">{{`{{m}}`}} minutes and {{`{{s}}`}} seconds until timeout</p>
+    
                             </template>
                         </amp-date-countdown>
+                                      */}}
+
+    <template type="amp-mustache">
+<h2 class="h1">TxnID: {{`{{txn_id}}`}}</h2>
+                    <h3>Please send exactly this amount:</h3>
+                        <div class="btn price">{{`{{amount}}`}}</div>
+                        <h3>To this address:</h3>
+
+                        <div class="btn ">{{`{{address}}`}}</div>
+                                  <amp-iframe
+      sandbox="allow-scripts"
+      width="64"
+      height="42"
+      frameborder="0"
+      [srcdata]="{{`{{address}}`}}">
+    <button class="copy-button" placeholder>Copy</button>
+  </amp-iframe>
+  <span>
+    Copy some fixed text
+  </span>
+                        <h4>ConfirmsNeeded  {{`{{confirms_needed}}`}}</h4>
+
+                  
                         <amp-img src="{{`{{qrcode_url}}`}}" width="222" height="222" layout="responsive"  alt="Payment Address QR Code Image"></amp-img>
-                        <button class="btn" on="tap:AMP.navigateTo(url='{{`{{status_url}}`}}', target='_blank')">Payment sent</button>
-                    </template>
+                        
+
+                        <button class="btn" on="tap:AMP.navigateTo(url='{{`{{status_url}}`}}', target='_blank'),tabpay.hide,tabindex.show">Payment sent</button>    
+    </template>
+                        
                 </div>
                 <div submit-error>
                     <template type="amp-mustache">Oops! {{`{{email}}`}}, {{`{{amount}}`}}.</template>

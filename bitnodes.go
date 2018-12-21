@@ -48,10 +48,9 @@ func main() {
 	r.HandleFunc("/admin/announcement/{annid}", rts.AdminAnnouncementPageHandler).Methods("GET")
 	r.HandleFunc("/admin/announcement", rts.AdminAnnouncementHandler).Methods("POST")
 
-	// r.HandleFunc("/api/{lang}", rts.ApiHandler)
-
 	r.HandleFunc("/api/pay", rts.CPay).Methods("GET")
-	// r.HandleFunc("/api/ipn", pay.CPayIPN).Methods("POST")
+	r.HandleFunc("/api/ipn", rts.CPayIPN).Methods("GET")
+	r.HandleFunc("/api/order/{txnid}", rts.ApiOrderHandler).Methods("GET")
 
 	r.HandleFunc("/amp", rts.AmpHandler)
 	// r.HandleFunc("/shop/{page}", rts.ShopHandler)

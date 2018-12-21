@@ -1,0 +1,23 @@
+{
+	"txnid": "CPCL6VJSC06S6K7NKY9ADGTI2O",
+	"nick": "ouiouio",
+	"csc": "uiouio",
+	"email": "marcetin@gmail.com",
+	"pack": "shared node1 Pack",
+	"amount": "0.02503127",
+	"amounti": "",
+	"timeout": 1545402452,
+	"status_url": "https://www.coinpayments.net/index.php?cmd=status\u0026id=CPCL6VJSC06S6K7NKY9ADGTI2O\u0026key=9a0f860d6dfb22b9e913fb43d51a770a",
+	"qrcode_url": "https://www.coinpayments.net/qrgen.php?id=CPCL6VJSC06S6K7NKY9ADGTI2O\u0026key=9a0f860d6dfb22b9e913fb43d51a770a",
+	"address": "32saMxx6zDnWzeY3zapk6VQFTyDrSJvu1y",
+	"time": 1545379052,
+	"status": "0",
+	"status_text": "",
+	"currency": "BTC",
+	"cnfnd": "2",
+	"confirms": "",
+	"fee": "",
+	"feei": "",
+	"received_amount": "",
+	"received_confirms": ""
+}
